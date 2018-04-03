@@ -1,6 +1,6 @@
 {
 	"name": "@wessberg/arrayutil",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A class for performing simple operations on arrays.",
 	"repository": {
 		"type": "git",
