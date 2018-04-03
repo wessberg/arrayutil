@@ -147,4 +147,19 @@ export class ArrayUtil implements IArrayUtil {
 			return 0;
 		});
 	}
+
+	/**
+	 * Maps the given array into a new object
+	 * @param {T[]} arr
+	 * @param {(element: T, index: number) => (string | number)} keyMapper
+	 * @param {(element: T, index: number) => any} valueMapper
+	 * @returns {object}
+	 */
+	public mapToObject<T> (arr: T[], keyMapper: (element: T, index: number) => (string|number), valueMapper: (element: T, index: number) => any): {[key: string]: any} {
+		const obj: {[key: string]: any} = {};
+		arr.forEach((element, index) => {
+			obj[keyMapper(element, index)] = valueMapper(element, index);
+		});
+		return obj;
+	}
 }
