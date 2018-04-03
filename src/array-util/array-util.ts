@@ -1,4 +1,5 @@
 import {IArrayUtil} from "./i-array-util";
+import {Flatten} from "./i-array-flattenable";
 // tslint:disable:no-magic-numbers
 // tslint:disable:no-any
 
@@ -9,92 +10,14 @@ export class ArrayUtil implements IArrayUtil {
 	/**
 	 * Flattens the array with the given recursive depth
 	 * @param {T[]} arr
-	 * @param {number} depth
 	 * @returns {T[]}
 	 */
-	public flatten<T> (arr: T[][][][][][][][], depth: 0): T[][][][][][][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 1): T[][][][][][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 2): T[][][][][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 3): T[][][][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 4): T[][][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 5): T[][][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 6): T[][];
-	public flatten<T> (arr: T[][][][][][][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][][][][][][], depth?: number): T[][][][][][][];
-
-	public flatten<T> (arr: T[][][][][][][], depth: 0): T[][][][][][][];
-	public flatten<T> (arr: T[][][][][][][], depth: 1): T[][][][][][];
-	public flatten<T> (arr: T[][][][][][][], depth: 2): T[][][][][];
-	public flatten<T> (arr: T[][][][][][][], depth: 3): T[][][][];
-	public flatten<T> (arr: T[][][][][][][], depth: 4): T[][][];
-	public flatten<T> (arr: T[][][][][][][], depth: 5): T[][];
-	public flatten<T> (arr: T[][][][][][][], depth: 6): T[];
-	public flatten<T> (arr: T[][][][][][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][][][][][], depth?: number): T[][][][][][];
-
-	public flatten<T> (arr: T[][][][][][], depth: 0): T[][][][][][];
-	public flatten<T> (arr: T[][][][][][], depth: 1): T[][][][][];
-	public flatten<T> (arr: T[][][][][][], depth: 2): T[][][][];
-	public flatten<T> (arr: T[][][][][][], depth: 3): T[][][];
-	public flatten<T> (arr: T[][][][][][], depth: 4): T[][];
-	public flatten<T> (arr: T[][][][][][], depth: 5): T[];
-	public flatten<T> (arr: T[][][][][][], depth: 6): T[];
-	public flatten<T> (arr: T[][][][][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][][][][], depth?: number): T[][][][][];
-
-	public flatten<T> (arr: T[][][][][], depth: 0): T[][][][][];
-	public flatten<T> (arr: T[][][][][], depth: 1): T[][][][];
-	public flatten<T> (arr: T[][][][][], depth: 2): T[][][];
-	public flatten<T> (arr: T[][][][][], depth: 3): T[][];
-	public flatten<T> (arr: T[][][][][], depth: 4): T[];
-	public flatten<T> (arr: T[][][][][], depth: 5): T[];
-	public flatten<T> (arr: T[][][][][], depth: 6): T[];
-	public flatten<T> (arr: T[][][][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][][][], depth?: number): T[][][][];
-
-	public flatten<T> (arr: T[][][][], depth: 0): T[][][][];
-	public flatten<T> (arr: T[][][][], depth: 1): T[][][];
-	public flatten<T> (arr: T[][][][], depth: 2): T[][];
-	public flatten<T> (arr: T[][][][], depth: 3): T[];
-	public flatten<T> (arr: T[][][][], depth: 4): T[];
-	public flatten<T> (arr: T[][][][], depth: 5): T[];
-	public flatten<T> (arr: T[][][][], depth: 6): T[];
-	public flatten<T> (arr: T[][][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][][], depth?: number): T[][][];
-
-	public flatten<T> (arr: T[][][], depth: 0): T[][][];
-	public flatten<T> (arr: T[][][], depth: 1): T[][];
-	public flatten<T> (arr: T[][][], depth: 2): T[];
-	public flatten<T> (arr: T[][][], depth: 3): T[];
-	public flatten<T> (arr: T[][][], depth: 4): T[];
-	public flatten<T> (arr: T[][][], depth: 5): T[];
-	public flatten<T> (arr: T[][][], depth: 6): T[];
-	public flatten<T> (arr: T[][][], depth: 7): T[];
-	public flatten<T> (arr: T[][][], depth?: number): T[][];
-
-	public flatten<T> (arr: T[][], depth: 0): T[][];
-	public flatten<T> (arr: T[][], depth: 1): T[];
-	public flatten<T> (arr: T[][], depth: 2): T[];
-	public flatten<T> (arr: T[][], depth: 3): T[];
-	public flatten<T> (arr: T[][], depth: 4): T[];
-	public flatten<T> (arr: T[][], depth: 5): T[];
-	public flatten<T> (arr: T[][], depth: 6): T[];
-	public flatten<T> (arr: T[][], depth: 7): T[];
-	public flatten<T> (arr: T[][], depth?: number): T[];
-
-	public flatten<T> (arr: T[], depth: 0): T[];
-	public flatten<T> (arr: T[], depth: 1): T[];
-	public flatten<T> (arr: T[], depth: 2): T[];
-	public flatten<T> (arr: T[], depth: 3): T[];
-	public flatten<T> (arr: T[], depth: 4): T[];
-	public flatten<T> (arr: T[], depth: 5): T[];
-	public flatten<T> (arr: T[], depth: 6): T[];
-	public flatten<T> (arr: T[], depth: 7): T[];
-	public flatten<T> (arr: T[], depth?: number): T[];
-	public flatten (arr: any[], depth?: number): any[] {
+	public flatten<T> (arr: T): Flatten<T> {
 		const target: any[] = [];
-		this.flattenIntoArray(target, arr, depth);
-		return target;
+		if (!Array.isArray(arr)) return <Flatten<T>> arr;
+
+		this.flattenIntoArray(target, arr, Infinity);
+		return <Flatten<T>> target;
 	}
 
 	/**
