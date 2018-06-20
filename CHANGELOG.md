@@ -1,3 +1,12 @@
+## <small>0.0.4 (2018-06-20)</small>
+
+* 0.0.4 ([502a1cb](https://github.com/wessberg/arrayutil/commit/502a1cb))
+* Bumped version ([505c4b0](https://github.com/wessberg/arrayutil/commit/505c4b0))
+* Bumped version ([df3a041](https://github.com/wessberg/arrayutil/commit/df3a041))
+* Converted to tree-shakeable functions, rather than the class-approach ([642548a](https://github.com/wessberg/arrayutil/commit/642548a))
+
+
+
 ## <small>0.0.3 (2018-04-03)</small>
 
 * 0.0.3 ([5202034](https://github.com/wessberg/arrayutil/commit/5202034))
