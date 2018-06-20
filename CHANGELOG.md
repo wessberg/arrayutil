@@ -1,4 +1,3 @@
-<a name="0.0.3"></a>
 ## <small>0.0.3 (2018-04-03)</small>
 
 * 0.0.3 ([5202034](https://github.com/wessberg/arrayutil/commit/5202034))
@@ -8,7 +7,6 @@
 
 
 
-<a name="0.0.2"></a>
 ## <small>0.0.2 (2018-03-24)</small>
 
 * 0.0.2 ([a510ae9](https://github.com/wessberg/arrayutil/commit/a510ae9))
@@ -16,7 +14,6 @@
 
 
 
-<a name="0.0.1"></a>
 ## <small>0.0.1 (2018-03-24)</small>
 
 * 0.0.1 ([9ba03d2](https://github.com/wessberg/arrayutil/commit/9ba03d2))

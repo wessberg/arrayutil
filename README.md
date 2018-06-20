@@ -1,4 +1,4 @@
-# ArrayUtil
+# @wessberg/arrayutil
 [![NPM version][npm-version-image]][npm-version-url]
 [![License-mit][license-mit-image]][license-mit-url]
 
