@@ -2,7 +2,7 @@
 // tslint:disable:no-magic-numbers
 // tslint:disable:array-type
 
-export declare type Flatten<A> =
+export declare type Flat<A> =
 	A extends Array<infer B>
 	? B extends Array<infer C>
 	? C extends Array<infer D>
@@ -19,5 +19,5 @@ export declare type Flatten<A> =
 	? M : L : K : J : I : H : G : F : E : D : C : B : A : A;
 
 export interface IArrayFlattenable {
-	flatten<T> (arr: T): Flatten<T>;
+	flatten<T> (arr: T): Flat<T>;
 }

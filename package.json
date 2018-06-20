@@ -1,7 +1,7 @@
 {
 	"name": "@wessberg/arrayutil",
 	"version": "0.0.3",
-	"description": "A class for performing simple operations on arrays.",
+	"description": "A collection of helpers functions for working with arrays",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/wessberg/arrayutil.git"

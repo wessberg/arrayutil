@@ -1,5 +1,4 @@
-import {Flatten} from "./i-array-flattenable";
-import {MapToObjectCallbackResult} from "./map-to-object-callback-result";
+import {Flat} from "./i-array-flattenable";
 
 // tslint:disable:no-any
 
@@ -8,26 +7,12 @@ import {MapToObjectCallbackResult} from "./map-to-object-callback-result";
  * @param {T[]} arr
  * @returns {T[]}
  */
-export function flatten<T> (arr: T): Flatten<T> {
+export function flat<T> (arr: T): Flat<T> {
 	const target: any[] = [];
-	if (!Array.isArray(arr)) return <Flatten<T>> arr;
+	if (!Array.isArray(arr)) return <Flat<T>> arr;
 
 	flattenIntoArray(target, arr, Infinity);
-	return <Flatten<T>><any> target;
-}
-
-/**
- * Sorts the given array by the given key
- * @param {T[]} arr
- * @param {string} key
- * @returns {T[]}
- */
-export function sortByKey<T> (arr: T[], key: keyof T): T[] {
-	return arr.sort((a, b) => {
-		if(a[key] < b[key]) return -1;
-		if(a[key] > b[key]) return 1;
-		return 0;
-	});
+	return <Flat<T>><any> target;
 }
 
 /**
@@ -56,14 +41,4 @@ function flattenIntoArray<T> (target: T[], source: T[], depth: number = 1, start
 		sourceIndex++;
 	}
 	return targetIndex;
-}
-
-/**
- * Maps the given array into a new object
- * @param {T[]} arr
- * @param {Function} callback
- * @returns {object}
- */
-export function mapToObject<T> (arr: T[], callback: (element: T, index: number, arr: T[]) => MapToObjectCallbackResult) {
-	return Object.assign({}, ...arr.map(callback));
 }
